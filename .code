@@ -1,1 +1,43 @@
+#include <iostream>
+#include <random>
+using namespace std;
 
+random_device rd;
+mt19937 gen(rd());
+uniform_int_distribution<int> dist(1,100);
+
+int main()  {
+    
+random_device rd;
+mt19937 gen(rd());
+uniform_int_distribution<int> dist(1,100);
+
+char playagain = 'y' ;
+
+while (playagain == 'y') {
+int guessed = dist(gen);
+int number1; 
+cout << "Welcome to the random number guess generator Game!!!!" << endl;
+cout << "Guess and Enter the correct number between one to hundred" << endl;
+cout << "Guess" << endl;
+cin >> number1;
+
+
+while (number1 != guessed) {
+      if (number1 < guessed) {
+            cout << "go higher" << endl;
+      } else if (number1 > guessed) {
+            cout << "go lower" << endl;
+      }
+
+      cout << "Guess and Enter the correct number between one to hundred: " << endl;
+      cin >> number1;
+}
+
+cout << "Congratulations You have guessed the correct number which was : " << guessed << endl;
+cout << "Play the game again y/n?";
+cin >> playagain;
+}
+    return 0;
+      
+}
